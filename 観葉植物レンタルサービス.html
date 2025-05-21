@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グリーンリーフ | 観葉植物の販売・レンタル・空間コーディネート</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={
+  theme:{
+    extend:{
+      colors:{primary:'#2e7d32',secondary:'#81c784'},
+      borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'},
+      screens: {
+        'xs': '375px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+      }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.hero-section {
+  background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20office%20space%20with%20lush%20green%20plants%2C%20natural%20light%20streaming%20through%20large%20windows%2C%20creating%20a%20serene%20and%20productive%20environment.%20The%20left%20side%20of%20the%20image%20has%20a%20clean%2C%20white%20background%20that%20seamlessly%20transitions%20to%20the%20right%20side%20showing%20beautiful%20indoor%20plants%20arranged%20aesthetically%20in%20the%20office%20space.%20Professional%20photography%20with%20soft%20lighting.&width=1600&height=800&seq=123456&orientation=landscape');
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .hero-section {
+    background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20office%20space%20with%20lush%20green%20plants%2C%20natural%20light%20streaming%20through%20large%20windows%2C%20creating%20a%20serene%20and%20productive%20environment.%20The%20left%20side%20of%20the%20image%20has%20a%20clean%2C%20white%20background%20that%20seamlessly%20transitions%20to%20the%20right%20side%20showing%20beautiful%20indoor%20plants%20arranged%20aesthetically%20in%20the%20office%20space.%20Professional%20photography%20with%20soft%20lighting%2C%20optimized%20for%20mobile%20vertical%20view.&width=800&height=1200&seq=123457&orientation=portrait');
+  }
+  .hero-content {
+    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,0.8) 100%);
+  }
+}
+.hero-content {
+  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #2e7d32;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+.newsletter-input:focus {
+  border-color: #2e7d32;
+}
+.mobile-menu-open {
+  overflow: hidden;
+}
+.mobile-menu {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+.mobile-menu.active {
+  transform: translateX(0);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white shadow-sm fixed w-full z-50">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="#" class="text-2xl md:text-3xl font-['Pacifico'] text-primary">logo</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-6">
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">商品一覧</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">レンタル</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">サブスクリプション</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">空間コーディネート</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">メンテナンス</a>
+</nav>
+<div class="flex items-center space-x-2 md:space-x-4">
+<a href="#contact" class="hidden md:block bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">お問い合わせ</a>
+<div class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary cursor-pointer">
+<i class="ri-shopping-cart-line ri-lg"></i>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button" aria-label="メニュー">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="mobile-menu-overlay"></div>
+<div class="mobile-menu md:hidden fixed inset-y-0 left-0 w-4/5 max-w-sm bg-white shadow-xl z-50" id="mobile-menu">
+<div class="p-6">
+<div class="flex justify-between items-center mb-8">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+<button class="w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-close">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<nav class="flex flex-col space-y-6">
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">商品一覧</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">レンタル</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">サブスクリプション</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">空間コーディネート</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition">メンテナンス</a>
+<a href="#contact" class="bg-primary text-white px-4 py-2 !rounded-button text-center hover:bg-opacity-90 transition">お問い合わせ</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section min-h-screen flex items-center pt-16">
+<div class="container mx-auto px-4 w-full">
+<div class="hero-content max-w-xl py-20 px-8 md:px-12">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">植物のある空間づくりを<br>トータルサポート</h1>
+<p class="text-lg text-gray-700 mb-8">オフィスやカフェに最適な観葉植物で、<br>心地よい空間を創造します。サステナブルな<br>環境づくりをお手伝いします。</p>
+<a href="#contact" class="inline-block bg-primary text-white px-8 py-3 !rounded-button text-lg font-medium hover:bg-opacity-90 transition shadow-md whitespace-nowrap">無料相談はこちら</a>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">サービス紹介</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">お客様のニーズに合わせた多様なサービスをご用意しております。植物のある豊かな空間づくりをサポートします。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="bg-white rounded shadow-md overflow-hidden transition hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Beautiful%20indoor%20plants%20for%20sale%20in%20a%20modern%20plant%20shop%2C%20various%20green%20potted%20plants%20on%20wooden%20shelves%20with%20soft%20natural%20lighting%2C%20professional%20product%20photography%20with%20clean%20background&width=600&height=400&seq=123457&orientation=landscape" alt="観葉植物販売" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+<i class="ri-plant-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">観葉植物販売</h3>
+<p class="text-gray-600 mb-6">厳選された高品質な観葉植物を豊富に取り揃えております。空間に合わせた植物選びをサポートします。</p>
+<a href="#" class="inline-block text-primary font-medium hover:underline">商品を見る <i class="ri-arrow-right-line align-middle ml-1"></i></a>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-white rounded shadow-md overflow-hidden transition hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20plant%20rental%20service%20for%20offices%2C%20elegant%20arrangement%20of%20potted%20plants%20in%20a%20modern%20workspace%2C%20creating%20a%20green%20environment%2C%20clean%20and%20organized%20display%20with%20natural%20lighting&width=600&height=400&seq=123458&orientation=landscape" alt="レンタルサービス" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+<i class="ri-recycle-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">レンタルサービス</h3>
+<p class="text-gray-600 mb-6">初期費用を抑えて観葉植物を導入できるレンタルプラン。定期的なメンテナンスも含まれています。</p>
+<a href="#" class="inline-block text-primary font-medium hover:underline">詳細を見る <i class="ri-arrow-right-line align-middle ml-1"></i></a>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-white rounded shadow-md overflow-hidden transition hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Plant%20subscription%20service%20with%20regular%20delivery%20of%20fresh%20indoor%20plants%2C%20beautifully%20packaged%20potted%20plants%20ready%20for%20delivery%2C%20sustainable%20packaging%2C%20professional%20product%20photography%20with%20clean%20background&width=600&height=400&seq=123459&orientation=landscape" alt="サブスクリプション" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+<i class="ri-calendar-check-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">サブスクリプション</h3>
+<p class="text-gray-600 mb-6">定期的に新しい植物をお届けするサブスクリプションサービス。季節に合わせた植物で空間を彩ります。</p>
+<a href="#" class="inline-block text-primary font-medium hover:underline">プランを見る <i class="ri-arrow-right-line align-middle ml-1"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">特徴・メリット</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">私たちのサービスが選ばれる理由をご紹介します。サステナブルな取り組みとプロフェッショナルなサポートで、理想の空間づくりをお手伝いします。</p>
+</div>
+<!-- Feature 1 -->
+<div class="flex flex-col md:flex-row items-center mb-20">
+<div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+<img src="https://readdy.ai/api/search-image?query=Sustainable%20plant%20care%20practices%20in%20a%20modern%20greenhouse%2C%20eco-friendly%20plant%20cultivation%20with%20recycled%20materials%2C%20workers%20caring%20for%20plants%20with%20natural%20light%2C%20professional%20environmental%20photography&width=600&height=400&seq=123460&orientation=landscape" alt="サステナブルな取り組み" class="rounded-lg shadow-md w-full">
+</div>
+<div class="md:w-1/2 md:pl-8">
+<h3 class="text-2xl font-bold text-gray-800 mb-4">サステナブルな取り組み</h3>
+<p class="text-gray-600 mb-6">環境に配慮した植物の栽培から、リサイクル可能なプランターの使用まで、私たちはサステナブルな事業運営を心がけています。CO2削減にも貢献する植物の力を最大限に活かしたサービスを提供しています。</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span class="text-gray-700">エコフレンドリーな栽培方法</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span class="text-gray-700">リサイクル素材のプランター</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span class="text-gray-700">CO2削減に貢献する植物選定</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col md:flex-row-reverse items-center">
+<div class="md:w-1/2 mb-8 md:mb-0 md:pl-8">
+<img src="https://readdy.ai/api/search-image?query=Professional%20plant%20maintenance%20service%2C%20expert%20gardener%20caring%20for%20indoor%20plants%20in%20an%20office%20environment%2C%20checking%20soil%20and%20pruning%20leaves%2C%20wearing%20professional%20uniform%2C%20clean%20and%20organized%20workspace&width=600&height=400&seq=123461&orientation=landscape" alt="プロのメンテナンスサービス" class="rounded-lg shadow-md w-full">
+</div>
+<div class="md:w-1/2 md:pr-8">
+<h3 class="text-2xl font-bold text-gray-800 mb-4">プロのメンテナンスサービス</h3>
+<p class="text-gray-600 mb-6">植物の専門家による定期的なメンテナンスで、常に美しい状態を維持します。水やり、剪定、病害虫対策など、植物のコンディションを最適に保つためのケアを提供しています。</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span class="text-gray-700">定期的な水やりと施肥</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span class="text-gray-700">専門家による剪定と整形</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line ri-lg"></i>
+</div>
+<span class="text-gray-700">病害虫の予防と対策</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies Section -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">導入事例</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">多くのオフィスやカフェで私たちのサービスをご利用いただいています。実際の導入事例をご覧ください。</p>
+</div>
+<!-- Tabs -->
+<div class="flex justify-center mb-10">
+<div class="inline-flex bg-white rounded-full p-1 shadow-sm">
+<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap text-gray-700 font-medium focus:outline-none active" data-tab="office">オフィス</button>
+<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap text-gray-700 font-medium focus:outline-none" data-tab="cafe">カフェ</button>
+</div>
+</div>
+<!-- Office Tab Content -->
+<div id="office-tab" class="tab-content active">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Case Study 1 -->
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Modern%20open%20office%20space%20with%20strategically%20placed%20large%20indoor%20plants%2C%20creating%20green%20zones%20between%20workstations%2C%20natural%20light%2C%20professional%20interior%20photography%20with%20employees%20working&width=600&height=400&seq=123462&orientation=landscape" alt="株式会社テックイノベーション" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold text-gray-800">株式会社テックイノベーション</h3>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">オフィス</span>
+</div>
+<p class="text-gray-600 mb-4">IT企業のオープンオフィスに大型観葉植物を配置。社員の生産性向上とストレス軽減に貢献しています。</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">レンタルプラン</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">大型植物</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">月次メンテナンス</span>
+</div>
+</div>
+</div>
+<!-- Case Study 2 -->
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Creative%20agency%20office%20with%20vertical%20garden%20wall%20installation%2C%20modern%20design%20with%20multiple%20small%20plants%20creating%20a%20living%20wall%2C%20bright%20and%20airy%20space%2C%20professional%20interior%20photography&width=600&height=400&seq=123463&orientation=landscape" alt="クリエイティブスタジオ アルファ" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold text-gray-800">クリエイティブスタジオ アルファ</h3>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">オフィス</span>
+</div>
+<p class="text-gray-600 mb-4">クリエイティブ企業の壁面に植物の壁を設置。独創的な空間づくりとブランドイメージの向上に貢献しています。</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">空間コーディネート</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">壁面緑化</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">週次メンテナンス</span>
+</div>
+</div>
+</div>
+<!-- Case Study 3 -->
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Corporate%20reception%20area%20with%20elegant%20plant%20arrangement%2C%20minimalist%20design%20with%20statement%20plants%20in%20modern%20planters%2C%20professional%20and%20welcoming%20atmosphere%2C%20high-end%20interior%20photography&width=600&height=400&seq=123464&orientation=landscape" alt="丸の内フィナンシャルグループ" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold text-gray-800">丸の内フィナンシャルグループ</h3>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">オフィス</span>
+</div>
+<p class="text-gray-600 mb-4">金融企業のエントランスに高級感のある観葉植物をレイアウト。来客へのおもてなしと企業イメージの向上に貢献しています。</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">購入プラン</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">ハイエンド植物</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">メンテナンス契約</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cafe Tab Content -->
+<div id="cafe-tab" class="tab-content">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Case Study 1 -->
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Cozy%20cafe%20interior%20with%20hanging%20plants%20and%20potted%20greenery%2C%20natural%20wood%20furniture%2C%20warm%20lighting%2C%20customers%20enjoying%20coffee%20in%20a%20green%20environment%2C%20professional%20interior%20photography&width=600&height=400&seq=123465&orientation=landscape" alt="グリーンカフェ オアシス" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold text-gray-800">グリーンカフェ オアシス</h3>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">カフェ</span>
+</div>
+<p class="text-gray-600 mb-4">自然をコンセプトにしたカフェ全体に植物を配置。居心地の良い空間づくりで顧客満足度が向上しています。</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">トータルコーディネート</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">多種多様な植物</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">週次メンテナンス</span>
+</div>
+</div>
+</div>
+<!-- Case Study 2 -->
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Minimalist%20coffee%20shop%20with%20strategic%20plant%20placement%2C%20clean%20design%20with%20statement%20plants%20in%20ceramic%20pots%2C%20bright%20space%20with%20natural%20light%2C%20professional%20interior%20photography&width=600&height=400&seq=123466&orientation=landscape" alt="ミニマルコーヒー" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold text-gray-800">ミニマルコーヒー</h3>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">カフェ</span>
+</div>
+<p class="text-gray-600 mb-4">ミニマルデザインのカフェに厳選された植物をポイント配置。洗練された空間づくりに貢献しています。</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">サブスクリプション</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">季節の植物</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">月次交換</span>
+</div>
+</div>
+</div>
+<!-- Case Study 3 -->
+<div class="bg-white rounded shadow-md overflow-hidden">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Outdoor%20cafe%20terrace%20with%20lush%20plant%20arrangements%2C%20comfortable%20seating%20surrounded%20by%20potted%20plants%20and%20hanging%20greenery%2C%20urban%20garden%20atmosphere%2C%20professional%20outdoor%20photography&width=600&height=400&seq=123467&orientation=landscape" alt="テラスカフェ ソラ" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold text-gray-800">テラスカフェ ソラ</h3>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">カフェ</span>
+</div>
+<p class="text-gray-600 mb-4">屋外テラスに季節に合わせた植物を配置。自然を感じられる空間で顧客の滞在時間が増加しています。</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">レンタルプラン</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">屋外対応植物</span>
+<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">季節ごとの入れ替え</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">プラン・料金</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">お客様のニーズに合わせた多様なプランをご用意しております。まずはお気軽にご相談ください。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<!-- Basic Plan -->
+<div class="bg-white rounded shadow-md overflow-hidden transition hover:shadow-lg border border-gray-100">
+<div class="p-6 border-b">
+<h3 class="text-xl font-bold text-gray-800 mb-2">ベーシックプラン</h3>
+<div class="flex items-end mb-4">
+<span class="text-3xl font-bold text-gray-800">¥15,000</span>
+<span class="text-gray-600 ml-1">/ 月〜</span>
+</div>
+<p class="text-gray-600">小規模オフィスやカフェに最適な基本プラン</p>
+</div>
+<div class="p-6">
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">観葉植物 5鉢まで</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">月1回のメンテナンス</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">基本的なプランター</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+<i class="ri-close-line"></i>
+</div>
+<span class="text-gray-400">植物の交換</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+<i class="ri-close-line"></i>
+</div>
+<span class="text-gray-400">空間コーディネート</span>
+</li>
+</ul>
+<a href="#" class="block text-center bg-white border border-primary text-primary px-4 py-2 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition">詳細を見る</a>
+</div>
+</div>
+<!-- Standard Plan -->
+<div class="bg-white rounded shadow-md overflow-hidden transition hover:shadow-lg border border-primary">
+<div class="bg-primary text-white p-2 text-center text-sm font-medium">
+人気プラン
+</div>
+<div class="p-6 border-b">
+<h3 class="text-xl font-bold text-gray-800 mb-2">スタンダードプラン</h3>
+<div class="flex items-end mb-4">
+<span class="text-3xl font-bold text-gray-800">¥30,000</span>
+<span class="text-gray-600 ml-1">/ 月〜</span>
+</div>
+<p class="text-gray-600">中規模オフィスやカフェに最適な標準プラン</p>
+</div>
+<div class="p-6">
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">観葉植物 10鉢まで</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">月2回のメンテナンス</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">デザインプランター</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">年2回の植物交換</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-gray-400 mr-2 mt-0.5">
+<i class="ri-close-line"></i>
+</div>
+<span class="text-gray-400">空間コーディネート</span>
+</li>
+</ul>
+<a href="#" class="block text-center bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">詳細を見る</a>
+</div>
+</div>
+<!-- Premium Plan -->
+<div class="bg-white rounded shadow-md overflow-hidden transition hover:shadow-lg border border-gray-100">
+<div class="p-6 border-b">
+<h3 class="text-xl font-bold text-gray-800 mb-2">プレミアムプラン</h3>
+<div class="flex items-end mb-4">
+<span class="text-3xl font-bold text-gray-800">¥50,000</span>
+<span class="text-gray-600 ml-1">/ 月〜</span>
+</div>
+<p class="text-gray-600">大規模オフィスやカフェに最適な高級プラン</p>
+</div>
+<div class="p-6">
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">観葉植物 20鉢まで</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">週1回のメンテナンス</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">高級デザインプランター</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">季節ごとの植物交換</span>
+</li>
+<li class="flex items-start">
+<div class="w-6 h-6 flex items-center justify-center text-primary mr-2 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span class="text-gray-700">空間コーディネート</span>
+</li>
+</ul>
+<a href="#" class="block text-center bg-white border border-primary text-primary px-4 py-2 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition">詳細を見る</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+<div class="md:flex">
+<div class="md:w-1/2 p-8 md:p-12 bg-primary bg-opacity-10">
+<h2 class="text-3xl font-bold text-gray-800 mb-6">お問い合わせ</h2>
+<p class="text-gray-600 mb-8">観葉植物の導入やメンテナンスについてのご質問、お見積りのご依頼など、お気軽にお問い合わせください。</p>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4 mt-1">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<h3 class="text-lg font-medium text-gray-800 mb-1">所在地</h3>
+<p class="text-gray-600">〒106-0032<br>東京都港区六本木 1-2-3 グリーンビル 5F</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4 mt-1">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h3 class="text-lg font-medium text-gray-800 mb-1">電話番号</h3>
+<p class="text-gray-600">03-1234-5678</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4 mt-1">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h3 class="text-lg font-medium text-gray-800 mb-1">メールアドレス</h3>
+<p class="text-gray-600">info@greenleaf-plants.jp</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 p-8 md:p-12">
+<form>
+<div class="mb-6">
+<label for="name" class="block text-sm font-medium text-gray-700 mb-2">お名前 <span class="text-red-500">*</span></label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring-0" required>
+</div>
+<div class="mb-6">
+<label for="company" class="block text-sm font-medium text-gray-700 mb-2">会社名</label>
+<input type="text" id="company" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring-0">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-sm font-medium text-gray-700 mb-2">メールアドレス <span class="text-red-500">*</span></label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring-0" required>
+</div>
+<div class="mb-6">
+<label for="phone" class="block text-sm font-medium text-gray-700 mb-2">電話番号</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring-0">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-sm font-medium text-gray-700 mb-2">お問い合わせ内容 <span class="text-red-500">*</span></label>
+<textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring-0" required></textarea>
+</div>
+<div class="mb-6">
+<label class="flex items-start">
+<div class="flex items-center h-5 mt-1">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-0" required>
+</div>
+<span class="ml-2 text-sm text-gray-600">
+<a href="#" class="text-primary hover:underline">プライバシーポリシー</a>に同意します
+</span>
+</label>
+</div>
+<button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">送信する</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+<p class="text-gray-300 mb-6">観葉植物の販売・レンタル・空間コーディネートを通じて、心地よい空間づくりをサポートします。</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+<i class="ri-instagram-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">サービス</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-300 hover:text-white transition">観葉植物販売</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">レンタルサービス</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">サブスクリプション</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">空間コーディネート</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">メンテナンスサービス</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">会社情報</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-300 hover:text-white transition">会社概要</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">スタッフ紹介</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">採用情報</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">ブログ</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition">お問い合わせ</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">ニュースレター</h3>
+<p class="text-gray-300 mb-4">最新の情報やお得なキャンペーン情報をお届けします。</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="メールアドレス" class="newsletter-input w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-l text-white focus:outline-none focus:border-primary">
+<button type="submit" class="bg-primary text-white px-4 py-2 rounded-r hover:bg-opacity-90 transition whitespace-nowrap">登録</button>
+</div>
+</form>
+<div class="flex space-x-2">
+<div class="w-10 h-6 flex items-center justify-center">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<div class="w-10 h-6 flex items-center justify-center">
+<i class="ri-mastercard-fill ri-lg"></i>
+</div>
+<div class="w-10 h-6 flex items-center justify-center">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 グリーンリーフ. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition">プライバシーポリシー</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition">利用規約</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition">特定商取引法に基づく表記</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+const body = document.body;
+function openMobileMenu() {
+  mobileMenu.classList.add('active');
+  mobileMenuOverlay.classList.remove('hidden');
+  body.classList.add('mobile-menu-open');
+}
+function closeMobileMenu() {
+  mobileMenu.classList.remove('active');
+  mobileMenuOverlay.classList.add('hidden');
+  body.classList.remove('mobile-menu-open');
+}
+mobileMenuButton.addEventListener('click', openMobileMenu);
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+// Close mobile menu on window resize if it's open
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+    closeMobileMenu();
+  }
+});
+// Close mobile menu when clicking on a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Tab Switching
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(button => {
+button.addEventListener('click', () => {
+// Remove active class from all buttons and contents
+tabButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-white'));
+tabContents.forEach(content => content.classList.remove('active'));
+// Add active class to current button and content
+button.classList.add('active', 'bg-primary', 'text-white');
+const tabId = button.getAttribute('data-tab');
+document.getElementById(`${tabId}-tab`).classList.add('active');
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Custom checkbox styling
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+const wrapper = document.createElement('div');
+wrapper.className = 'relative';
+const customCheckbox = document.createElement('div');
+customCheckbox.className = 'w-4 h-4 border border-gray-300 rounded bg-white';
+const checkIcon = document.createElement('div');
+checkIcon.className = 'absolute inset-0 flex items-center justify-center text-white scale-0 transition-transform';
+checkIcon.innerHTML = '<i class="ri-check-line ri-xs"></i>';
+checkbox.checked ? customCheckbox.classList.add('bg-primary', 'border-primary') : null;
+checkbox.checked ? checkIcon.classList.add('scale-100') : null;
+checkbox.addEventListener('change', function() {
+if (this.checked) {
+customCheckbox.classList.add('bg-primary', 'border-primary');
+checkIcon.classList.add('scale-100');
+} else {
+customCheckbox.classList.remove('bg-primary', 'border-primary');
+checkIcon.classList.remove('scale-100');
+}
+});
+wrapper.appendChild(customCheckbox);
+wrapper.appendChild(checkIcon);
+checkbox.parentNode.insertBefore(wrapper, checkbox);
+checkbox.style.opacity = '0';
+checkbox.style.position = 'absolute';
+});
+});
+</script>
+</body>
+</html>
