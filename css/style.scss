@@ -103,8 +103,70 @@
   }
 }
 
+// 特徴・メリットセクション
+.features {
+  .feature{
+    display: flex;
+    align-items: end;
+    gap: 4%;
+    &__image{
+      width: 48%;
+      img{
+        border-radius: 10px;
+      }
+    }
+    &__content{
+      width: 48%;
+    }
+  }
+  .feature:last-child{
+    flex-direction: row-reverse;
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: 4%;
+  }
+}
+.feature__text{
+  line-height: 1.6;
+  margin-bottom: 4%;
+}
+.feature__item{
+    display: flex;
+    align-items: center;
+    line-height: .75em;
+    margin-bottom: 5%;
+}
+.feature__title{
+  font-size: 24px;
+}
+.icon-check__wrapper{
+  padding-right: 5px;
+}
+
 // Form
+.section__description{
+  line-height: 1.8;
+}
+.contact{
+  display: flex;
+  box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  &__details{
+    margin-top: 5%;
+  }
+  &__contents{
+  width: 50%;
+  padding: 3rem;
+  }
+  &__info{
+    background: #e9f2eb;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
 .form {
+  border-radius: 10px 0 0 10px;
+  background: #fff;
   &__group {
     margin-bottom: 1.5rem;
   }
@@ -122,12 +184,43 @@
     padding: 0.5rem 1rem;
     border: 1px solid $color-gray-300;
     border-radius: 0.25rem;
+    box-sizing: border-box;
     
     &:focus {
       outline: none;
       border-color: $color-primary;
     }
   }
+
+  &__submit{
+    width: 100%;
+  }
+}
+
+.contact__item{
+    display: flex;
+    align-items: baseline;
+    gap: 4%;
+}
+
+.contact__icon{
+    display: inline-block;
+    background-color: #c3dbc6;
+    padding: 8px;
+    border-radius: 50rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact__label{
+  margin-bottom: 0;
+}
+.contact__text p{
+  margin-top: 2%;
+  line-height: 1.8;
 }
 
 // Footer
