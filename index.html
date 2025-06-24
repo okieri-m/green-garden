@@ -1,13 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Day</title>
+    <title>グリーンリーフ | 観葉植物の販売・レンタル・空間コーディネート</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="#" class="header__logo">logo</a>
+            <!-- Desktop Navigation -->
+            <nav class="nav">
+                <a href="#" class="nav__link">商品一覧</a>
+                <a href="#" class="nav__link">レンタル</a>
+                <a href="#" class="nav__link">サブスクリプション</a>
+                <a href="#" class="nav__link">空間コーディネート</a>
+                <a href="#" class="nav__link">メンテナンス</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#contact" class="button button--primary header__contact">お問い合わせ</a>
+                <button class="header__cart">
+                    <i class="ri-shopping-cart-line ri-lg"></i>
+                </button>
+                <button class="header__menu-button" id="mobile-menu-button" aria-label="メニュー">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <a href="#" class="header__logo">logo</a>
+            <button class="mobile-menu__close" id="mobile-menu-close">
+                <i class="ri-close-line ri-lg"></i>
+            </button>
+        </div>
+        <div class="mobile-menu__nav">
+            <a href="#" class="nav__link">商品一覧</a>
+            <a href="#" class="nav__link">レンタル</a>
+            <a href="#" class="nav__link">サブスクリプション</a>
+            <a href="#" class="nav__link">空間コーディネート</a>
+            <a href="#" class="nav__link">メンテナンス</a>
+            <a href="#contact" class="button button--primary">お問い合わせ</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">植物のある空間づくりを<br>トータルサポート</h1>
+                <p class="hero__text">オフィスやカフェに最適な観葉植物で、<br>心地よい空間を創造します。サステナブルな<br>環境づくりをお手伝いします。</p>
+                <a href="#contact" class="button button--primary">無料相談はこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section--gray">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">サービス紹介</h2>
+                <p class="section__description">お客様のニーズに合わせた多様なサービスをご用意しております。植物のある豊かな空間づくりをサポートします。</p>
+            </div>
+            <div class="services">
+                <!-- Service Card 1 -->
+                <div class="card">
+                    <div class="card__image">
+                        <img src="images/plants-on-a shelf.jpg" alt="観葉植物販売">
+                    </div>
+                    <div class="card__content">
+                        <div class="card__icon">
+                            <i class="ri-plant-line ri-lg color--primary"></i>
+                        </div>
+                        <h3 class="card__title">観葉植物販売</h3>
+                        <p class="card__text">厳選された高品質な観葉植物を豊富に取り揃えております。空間に合わせた植物選びをサポートします。</p>
+                        <a href="#" class="card__link">商品を見る <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="card">
+                    <div class="card__image">
+                        <img src="images/plants-in-office.jpg" alt="レンタルサービス">
+                    </div>
+                    <div class="card__content">
+                        <div class="card__icon">
+                            <i class="ri-recycle-line ri-lg color--primary"></i>
+                        </div>
+                        <h3 class="card__title">レンタルサービス</h3>
+                        <p class="card__text">初期費用を抑えて観葉植物を導入できるレンタルプラン。定期的なメンテナンスも含まれています。</p>
+                        <a href="#" class="card__link">詳細を見る <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="card">
+                    <div class="card__image">
+                        <img src="images/plant-subscribe.jpg" alt="サブスクリプション">
+                    </div>
+                    <div class="card__content">
+                        <div class="card__icon">
+                            <i class="ri-calendar-check-line ri-lg color--primary"></i>
+                        </div>
+                        <h3 class="card__title">サブスクリプション</h3>
+                        <p class="card__text">定期的に新しい植物をお届けするサブスクリプションサービス。季節に合わせた植物で空間を彩ります。</p>
+                        <a href="#" class="card__link">プランを見る <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">特徴・メリット</h2>
+                <p class="section__description">私たちのサービスが選ばれる理由をご紹介します。サステナブルな取り組みとプロフェッショナルなサポートで、理想の空間づくりをお手伝いします。</p>
+            </div>
+            <div class="features">
+                <!-- Feature 1 -->
+                <div class="feature">
+                    <div class="feature__image">
+                        <img src="images/green-house.jpg" alt="サステナブルな取り組み">
+                    </div>
+                    <div class="feature__content">
+                        <h3 class="feature__title">サステナブルな取り組み</h3>
+                        <p class="feature__text">環境に配慮した植物の栽培から、リサイクル可能なプランターの使用まで、私たちはサステナブルな事業運営を心がけています。</p>
+                        <ul class="feature__list">
+                            <li class="feature__item">エコフレンドリーな栽培方法</li>
+                            <li class="feature__item">リサイクル素材のプランター</li>
+                            <li class="feature__item">CO2削減に貢献する植物選定</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature feature--reverse">
+                    <div class="feature__image">
+                        <img src="images/check-plants.jpg" alt="プロのメンテナンスサービス">
+                    </div>
+                    <div class="feature__content">
+                        <h3 class="feature__title">プロのメンテナンスサービス</h3>
+                        <p class="feature__text">植物の専門家による定期的なメンテナンスで、常に美しい状態を維持します。</p>
+                        <ul class="feature__list">
+                            <li class="feature__item">定期的な水やりと施肥</li>
+                            <li class="feature__item">専門家による剪定と整形</li>
+                            <li class="feature__item">病害虫の予防と対策</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact">
+                <div class="contact__info">
+                    <h2 class="section__title">お問い合わせ</h2>
+                    <p class="section__description">観葉植物の導入やメンテナンスについてのご質問、お見積りのご依頼など、お気軽にお問い合わせください。</p>
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h3 class="contact__label">所在地</h3>
+                                <p>〒106-0032<br>東京都港区六本木 1-2-3 グリーンビル 5F</p>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h3 class="contact__label">電話番号</h3>
+                                <p>03-1234-5678</p>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <div class="contact__text">
+                                <h3 class="contact__label">メールアドレス</h3>
+                                <p>info@greenleaf-plants.jp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="form contact__form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">お名前 <span class="form__required">*</span></label>
+                        <input type="text" id="name" class="form__input" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="company" class="form__label">会社名</label>
+                        <input type="text" id="company" class="form__input">
+                    </div>
+                    <div class="form__group">
+                        <label for="email" class="form__label">メールアドレス <span class="form__required">*</span></label>
+                        <input type="email" id="email" class="form__input" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="phone" class="form__label">電話番号</label>
+                        <input type="tel" id="phone" class="form__input">
+                    </div>
+                    <div class="form__group">
+                        <label for="message" class="form__label">お問い合わせ内容 <span class="form__required">*</span></label>
+                        <textarea id="message" class="form__input form__input--textarea" rows="4" required></textarea>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__checkbox">
+                            <input type="checkbox" required>
+                            <span class="form__checkbox-text">
+                                <a href="#" class="form__link">プライバシーポリシー</a>に同意します
+                            </span>
+                        </label>
+                    </div>
+                    <button type="submit" class="button button--primary form__submit">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">logo</a>
+                    <p class="footer__description">観葉植物の販売・レンタル・空間コーディネートを通じて、心地よい空間づくりをサポートします。</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__nav">
+                    <h3 class="footer__title">サービス</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">観葉植物販売</a></li>
+                        <li><a href="#">レンタルサービス</a></li>
+                        <li><a href="#">サブスクリプション</a></li>
+                        <li><a href="#">空間コーディネート</a></li>
+                        <li><a href="#">メンテナンスサービス</a></li>
+                    </ul>
+                </div>
+                <div class="footer__nav">
+                    <h3 class="footer__title">会社情報</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">会社概要</a></li>
+                        <li><a href="#">スタッフ紹介</a></li>
+                        <li><a href="#">採用情報</a></li>
+                        <li><a href="#">ブログ</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__newsletter">
+                    <h3 class="footer__title">ニュースレター</h3>
+                    <p class="footer__description">最新の情報やお得なキャンペーン情報をお届けします。</p>
+                    <form class="footer__form">
+                        <div class="footer__form-group">
+                            <input type="email" placeholder="メールアドレス" class="footer__input">
+                            <button type="submit" class="button button--primary">登録</button>
+                        </div>
+                    </form>
+                    <div class="footer__payment">
+                        <i class="ri-visa-fill ri-lg"></i>
+                        <i class="ri-mastercard-fill ri-lg"></i>
+                        <i class="ri-paypal-fill ri-lg"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2025 グリーンリーフ. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="#">プライバシーポリシー</a>
+                    <a href="#">利用規約</a>
+                    <a href="#">特定商取引法に基づく表記</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>

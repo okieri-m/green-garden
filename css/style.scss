@@ -1,0 +1,229 @@
+@use "./globals/" as *;
+@use "./parts/common" as *;
+@use "./parts/header" as *;
+
+
+// Hero Section
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url("/images/plants-in-office.jpg") no-repeat center;
+  background-size: cover;
+  background-position: center;
+  &__container{
+    margin: auto 0 auto 10%;
+  }
+
+  &__content {
+    margin-top: 95px;
+    max-width: 36rem;
+    padding: 5rem 2rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 2rem;
+
+    @include mq(md) {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 70%, rgba(255, 255, 255, 0) 100%);
+    }
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $color-gray-800;
+    margin-bottom: 1.5rem;
+
+    @include mq(md) {
+      font-size: 3rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    color: $color-gray-700;
+    margin-bottom: 2rem;
+  }
+}
+
+// サービスセクション
+.services{
+  display: flex;
+  gap: 3%;
+}
+
+// Card
+.card {
+  background-color: $color-white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  @include hover-transition;
+
+  &:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    height: 12rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__icon{
+    display: inline-block;
+    background-color: #eaf2ea;
+    padding: 8px;
+    border-radius: 50rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-gray-800;
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    color: $color-gray-600;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Form
+.form {
+  &__group {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $color-gray-700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid $color-gray-300;
+    border-radius: 0.25rem;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $color-gray-800;
+  color: $color-white;
+  padding: 4rem 0 2rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @include mq(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.25rem;
+    color: $color-white;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  &__description {
+    color: $color-gray-300;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.75rem;
+    }
+
+    a {
+      color: $color-gray-300;
+      text-decoration: none;
+      @include hover-transition;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid $color-gray-700;
+    padding-top: 2rem;
+    text-align: center;
+
+    @include mq(md) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    color: $color-gray-400;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+
+    @include mq(md) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+
+    a {
+      color: $color-gray-400;
+      font-size: 0.875rem;
+      text-decoration: none;
+      @include hover-transition;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+}

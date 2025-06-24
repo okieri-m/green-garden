@@ -1,0 +1,96 @@
+@use "../globals/" as *;
+
+// Header
+.header {
+    background-color: $color-white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+  
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+  
+    &__logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.875rem;
+      color: $color-primary;
+      text-decoration: none;
+  
+      @include mq(md) {
+        font-size: 2.25rem;
+      }
+    }
+  
+    &__menu-button{
+      @include mq(md) {
+        display: none;
+      }
+    }
+  }
+  
+  // Navigation
+  .nav {
+    display: none;
+  
+    @include mq(md) {
+      display: flex;
+      gap: 1.5rem;
+    }
+  
+    &__link {
+      color: $color-gray-700;
+      font-weight: 500;
+      text-decoration: none;
+      @include hover-transition;
+  
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  
+  // Mobile Menu
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 24rem;
+    background-color: $color-white;
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 50;
+  
+    &--active {
+      transform: translateX(0);
+    }
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+    }
+  
+    &__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+  
+    &__overlay {
+      position: fixed;
+      inset: 0;
+    //   background-color: rgba(0, 0, 0, 0.5);
+      z-index: 49;
+      display: none;
+    }
+  }

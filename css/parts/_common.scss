@@ -1,0 +1,81 @@
+@use "../globals/" as *;
+
+// destyles
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+  }
+
+  button{
+    background-color: unset;
+    border: none;
+  }
+  
+  // Layout
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  // Section
+.section {
+    padding: 5rem 0;
+  
+    &--gray {
+      background-color: $color-gray-50;
+    }
+  
+    &__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+  
+    &__title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: $color-gray-800;
+      margin-bottom: 1rem;
+    }
+  
+    &__description {
+      color: $color-gray-600;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+  }
+
+  // Button
+.button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    @include hover-transition;
+  
+    &--primary {
+      background-color: $color-primary;
+      color: $color-white;
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  
+    &--outline {
+      border: 1px solid $color-primary;
+      color: $color-primary;
+  
+      &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+
+// カラーレイアウト
+.color--primary{
+    color: $color-primary;
+}

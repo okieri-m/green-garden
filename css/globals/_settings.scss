@@ -1,0 +1,40 @@
+// Variables
+$color-primary: #2e7d32;
+$color-secondary: #81c784;
+$color-white: #fff;
+$color-gray-800: #1f2937;
+$color-gray-700: #374151;
+$color-gray-600: #4b5563;
+$color-gray-400: #9ca3af;
+$color-gray-300: #d1d5db;
+$color-gray-100: #f3f4f6;
+$color-gray-50: #f9fafb;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hover-transition {
+  transition: all 0.3s ease;
+}
+
+// Variables
+$breakpoints: (
+    // 480px以上(スマホの横向き)のモニタで適用
+    'sm': 'screen and (min-width: 480px)',
+    // 600px以上のタブレットやモニタで適用
+    'md': 'screen and (min-width: 600px)',
+    // 960px以上のモニタで適用
+    'lg': 'screen and (min-width: 960px)',
+    // 1280px以上のモニタで適用
+    'xl': 'screen and (min-width: 1280px)',
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
