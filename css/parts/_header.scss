@@ -27,17 +27,33 @@
     }
   
     &__menu-button{
-      @include mq(md) {
+      @include mq(lg) {
         display: none;
       }
     }
+    &__cart{
+      width: 2.5rem;
+      height: 2.5rem;
+      display: inline-block;
+    }
+    &__actions{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    &__contact{
+      padding: .5rem 0.75rem;
+    }
+  }
+  .ri-lg{
+    font-size: 1.8em;
   }
   
   // Navigation
   .nav {
     display: none;
   
-    @include mq(md) {
+    @include mq(lg) {
       display: flex;
       gap: 1.5rem;
     }
@@ -89,8 +105,11 @@
     &__overlay {
       position: fixed;
       inset: 0;
-    //   background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 49;
-      display: none;
+      display: block;
+      &.hidden{
+        display: none;
+      }
     }
   }

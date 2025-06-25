@@ -1,0 +1,151 @@
+@use "../globals/" as *;
+
+// Footer
+.footer {
+    background-color: $color-gray-800;
+    color: $color-white;
+    padding: 4rem 0 2rem;
+  
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+  
+      @include mq(md) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  
+    &__logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.25rem;
+      color: $color-white;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+  
+    &__description {
+      color: $color-gray-300;
+      margin-bottom: 1.5rem;
+    }
+  
+    &__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+  
+    &__links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li {
+        margin-bottom: 0.75rem;
+      }
+  
+      a {
+        color: $color-gray-300;
+        text-decoration: none;
+        @include hover-transition;
+  
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+    &__social{
+        display: flex;
+        gap: 3%;
+        @include mq(md){
+            gap: 5%;
+        }
+    }
+    &__social-link{
+        text-decoration: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: #374151;
+        border-radius: 50rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__social-link-icon{
+        color: #fff;
+    }
+    &__form-group{
+        display: flex;
+    }
+    &__input{
+        padding: 0.5rem 1rem;
+        background-color: #374151;
+        border-radius: 10px 0 0 10px;
+        border: none;
+        color: $color-white;
+        outline: none;
+        
+        &:focus{
+            border: none;
+            outline: none;
+        }
+        
+        &::placeholder {
+            color: $color-gray-400;
+        }
+        
+        // カーソルの色を白に設定
+        caret-color: $color-white;
+    }
+    &__button{
+        border-radius: 0 10px 10px 0;
+    }
+    &__payment{
+        margin-top: 1rem;
+        display: flex;
+        gap: 8%;
+    }
+  
+    &__bottom {
+      border-top: 1px solid $color-gray-700;
+      padding-top: 2rem;
+      text-align: center;
+  
+      @include mq(md) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  
+    &__copyright {
+      color: $color-gray-400;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+  
+      @include mq(md) {
+        margin-bottom: 0;
+      }
+    }
+  
+    &__legal {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+  
+      a {
+        color: $color-gray-400;
+        font-size: 0.875rem;
+        text-decoration: none;
+        @include hover-transition;
+  
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+  }
+  
