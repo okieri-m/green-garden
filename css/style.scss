@@ -1,6 +1,9 @@
 @use "./globals/" as *;
 @use "./parts/common" as *;
 @use "./parts/header" as *;
+@use "./parts/footer" as *;
+@use "./parts/case-studies" as *;
+@use "./parts/pricing" as *;
 
 
 // Hero Section
@@ -47,8 +50,10 @@
 
 // サービスセクション
 .services{
-  display: flex;
-  gap: 3%;
+  @include mq(md){
+    display: flex;
+    gap: 3%;
+  }
 }
 
 // Card
@@ -101,22 +106,34 @@
     color: $color-gray-600;
     margin-bottom: 1.5rem;
   }
+
+  &__link{
+    color: $color-primary;
+  }
 }
 
 // 特徴・メリットセクション
 .features {
   .feature{
-    display: flex;
-    align-items: end;
-    gap: 4%;
+    margin-bottom: 5rem;
+    @include mq(md){
+      display: flex;
+      align-items: end;
+      gap: 4%;
+    }
     &__image{
-      width: 48%;
+
+      @include mq(md){
+        width: 48%;
+      }
       img{
         border-radius: 10px;
       }
     }
     &__content{
-      width: 48%;
+      @include mq(md){
+        width: 48%;
+      }
     }
   }
   .feature:last-child{
@@ -148,25 +165,35 @@
   line-height: 1.8;
 }
 .contact{
-  display: flex;
   box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  @include mq(md){
+    display: flex;
+  }
   &__details{
     margin-top: 5%;
   }
   &__contents{
-  width: 50%;
   padding: 3rem;
+  @include mq(md){
+    width: 50%;
+  }
   }
   &__info{
     background: #e9f2eb;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 10px 0 0;
+    @include mq(md){
+      border-radius: 10px 0 0 10px;
+    }
   }
 }
 
 .form {
-  border-radius: 10px 0 0 10px;
+  border-radius: 0 0 10px 10px;
   background: #fff;
+  @include mq(md){
+    border-radius: 10px 0 0 10px;
+  }
   &__group {
     margin-bottom: 1.5rem;
   }
@@ -221,102 +248,4 @@
 .contact__text p{
   margin-top: 2%;
   line-height: 1.8;
-}
-
-// Footer
-.footer {
-  background-color: $color-gray-800;
-  color: $color-white;
-  padding: 4rem 0 2rem;
-
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
-
-    @include mq(md) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  &__logo {
-    font-family: 'Pacifico', cursive;
-    font-size: 2.25rem;
-    color: $color-white;
-    text-decoration: none;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-  }
-
-  &__description {
-    color: $color-gray-300;
-    margin-bottom: 1.5rem;
-  }
-
-  &__title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
-
-  &__links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin-bottom: 0.75rem;
-    }
-
-    a {
-      color: $color-gray-300;
-      text-decoration: none;
-      @include hover-transition;
-
-      &:hover {
-        color: $color-white;
-      }
-    }
-  }
-
-  &__bottom {
-    border-top: 1px solid $color-gray-700;
-    padding-top: 2rem;
-    text-align: center;
-
-    @include mq(md) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  &__copyright {
-    color: $color-gray-400;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-
-    @include mq(md) {
-      margin-bottom: 0;
-    }
-  }
-
-  &__legal {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-
-    a {
-      color: $color-gray-400;
-      font-size: 0.875rem;
-      text-decoration: none;
-      @include hover-transition;
-
-      &:hover {
-        color: $color-white;
-      }
-    }
-  }
 }

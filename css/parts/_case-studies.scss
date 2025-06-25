@@ -1,0 +1,142 @@
+@use "../globals/" as *;
+
+// Tabs
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+
+  &__container {
+    display: inline-flex;
+    background-color: $color-white;
+    border-radius: 50rem;
+    padding: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &__button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 50rem;
+    white-space: nowrap;
+    color: $color-gray-700;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &--active {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &:hover:not(&--active) {
+      background-color: $color-gray-100;
+    }
+  }
+}
+
+// Tab Content
+.tab-content {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+// Case Studies
+.case-studies {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Case Study
+.case-study {
+  background-color: $color-white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &__image {
+    height: 14rem;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-gray-800;
+    margin: 0;
+  }
+
+  &__category {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+
+    &--office {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    &--cafe {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+  }
+
+  &__description {
+    color: $color-gray-600;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__tag {
+    background-color: $color-gray-100;
+    color: $color-gray-800;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+} 

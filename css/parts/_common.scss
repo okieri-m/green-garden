@@ -21,6 +21,7 @@ body {
   button{
     background-color: unset;
     border: none;
+    cursor: pointer;
   }
   
   // Layout
@@ -28,6 +29,9 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
+    @include mq(xl){
+      max-width: 1530px;
+    }
   }
 
   // Section
