@@ -35,6 +35,7 @@
       width: 2.5rem;
       height: 2.5rem;
       display: inline-block;
+      line-height: 1;
     }
     &__actions{
       display: flex;
@@ -49,6 +50,23 @@
     font-size: 1.8em;
   }
   
+.header__menu-button{
+    .ri-menu-line{
+    display: block;
+  }
+  .ri-close-line{
+    display: none;
+  }
+  &.mobile-menu--active{
+  .ri-menu-line{
+    display: none;
+  }
+  .ri-close-line{
+    display: block;
+  }
+}
+}
+
   // Navigation
   .nav {
     display: none;

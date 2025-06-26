@@ -4,6 +4,7 @@
 @use "./parts/footer" as *;
 @use "./parts/case-studies" as *;
 @use "./parts/pricing" as *;
+@use "./parts/animation" as *;
 
 
 // Hero Section
@@ -11,11 +12,14 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("/images/plants-in-office.jpg") no-repeat center;
+  background: url("../images/plants-in-office.jpg") no-repeat center;
   background-size: cover;
   background-position: center;
   &__container{
+    margin: auto;
+    @include mq(md){
     margin: auto 0 auto 10%;
+    }
   }
 
   &__content {
@@ -62,8 +66,11 @@
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  margin-bottom: 8%;
+  @include mq(md){
+    margin-bottom: 0
+  }
   @include hover-transition;
-
   &:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -174,9 +181,10 @@
     margin-top: 5%;
   }
   &__contents{
-  padding: 3rem;
+  padding: 1.5rem;
   @include mq(md){
     width: 50%;
+    padding: 3rem;
   }
   }
   &__info{
@@ -221,6 +229,12 @@
 
   &__submit{
     width: 100%;
+    max-width: 400px;
+    margin: auto;
+    display: block;
+  }
+  &__link{
+    color: $color-primary;
   }
 }
 
@@ -235,15 +249,22 @@
     background-color: #c3dbc6;
     padding: 8px;
     border-radius: 50rem;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    @include mq(md){
+      width: 30px;
+      height: 30px;
+    }
 }
 
 .contact__label{
   margin-bottom: 0;
+}
+.contact__text{
+    width: calc(96% - 25px);
 }
 .contact__text p{
   margin-top: 2%;

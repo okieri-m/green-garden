@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -6,10 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const body = document.body;
 
-    function openMobileMenu() {
-        mobileMenu.classList.add('mobile-menu--active');
-        mobileMenuOverlay.classList.remove('hidden');
-        body.style.overflow = 'hidden';
+    function operateMobileMenu() {
+        if (!mobileMenu.classList.contains('mobile-menu--active')) {
+            mobileMenu.classList.add('mobile-menu--active');
+            mobileMenuButton.classList.add('mobile-menu--active');
+            mobileMenuOverlay.classList.remove('hidden');
+            body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.remove('mobile-menu--active');
+            mobileMenuButton.classList.remove('mobile-menu--active');
+            mobileMenuOverlay.classList.add('hidden');
+            body.style.overflow = '';
+        }
     }
 
     function closeMobileMenu() {
@@ -18,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body.style.overflow = '';
     }
 
-    mobileMenuButton.addEventListener('click', openMobileMenu);
-    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenuButton.addEventListener('click', operateMobileMenu);
     mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
     // Close mobile menu on window resize if it's open
@@ -65,4 +74,33 @@ document.addEventListener('DOMContentLoaded', () => {
             switchTab(tabName);
         });
     });
+
+    const fvAnimation = document.querySelector(".js-fade-in");
+    const scrollTargets = document.querySelectorAll(".js-scroll-in--left");
+    const scrollInRightTargets = document.querySelectorAll(".js-scroll-in--right");
+
+
+    const options = {
+        root: null,
+        threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver(fadeInAnimation, options);
+
+    function fadeInAnimation(entries) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+            }
+        });
+    }
+
+    scrollTargets.forEach((scrollTarget) => {
+        observer.observe(scrollTarget);
+    });
+    scrollInRightTargets.forEach((scrollTarget) => {
+        observer.observe(scrollTarget);
+    });
+    
+    observer.observe(fvAnimation);
 });

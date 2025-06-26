@@ -1,0 +1,56 @@
+
+.js-scroll-in--left, .js-scroll-in--right, .js-fade-in{
+    opacity: 0;
+}
+.js-scroll-in--left, .js-scroll-in--right{
+    transition: opacity 0.4s;
+}
+
+.js-scroll-in--left.animated {
+  animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+.js-scroll-in--right.animated {
+  animation: slideInRight 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+//  右から左へスライドインのアニメーション
+@keyframes slideIn {
+  0% {
+    transform: translateX(180px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+  }
+  40%,100% {
+    opacity: 1;
+  }
+}
+//  左から右へへスライドインのアニメーション
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-180px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+  }
+  40%,100% {
+    opacity: 1;
+  }
+}
+
+// フェードインのアニメーション
+.js-fade-in.animated {
+  animation: fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+ 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+ 

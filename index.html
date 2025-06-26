@@ -31,19 +31,17 @@
                 </button>
                 <button class="header__menu-button" id="mobile-menu-button" aria-label="メニュー">
                     <i class="ri-menu-line ri-lg"></i>
+                    <i class="ri-close-line ri-lg"></i>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu__overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu__overlay hidden" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu__header">
             <a href="#" class="header__logo">logo</a>
-            <button class="mobile-menu__close" id="mobile-menu-close">
-                <i class="ri-close-line ri-lg"></i>
-            </button>
         </div>
         <div class="mobile-menu__nav">
             <a href="#" class="nav__link">商品一覧</a>
@@ -58,7 +56,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero__container">
-            <div class="hero__content">
+            <div class="hero__content js-fade-in">
                 <h1 class="hero__title">植物のある空間づくりを<br>トータルサポート</h1>
                 <p class="hero__text">オフィスやカフェに最適な観葉植物で、<br>心地よい空間を創造します。サステナブルな<br>環境づくりをお手伝いします。</p>
                 <a href="#contact" class="button button--primary">無料相談はこちら</a>
@@ -73,7 +71,7 @@
                 <h2 class="section__title">サービス紹介</h2>
                 <p class="section__description">お客様のニーズに合わせた多様なサービスをご用意しております。植物のある豊かな空間づくりをサポートします。</p>
             </div>
-            <div class="services">
+            <div class="services js-scroll-in--left">
                 <!-- Service Card 1 -->
                 <div class="card">
                     <div class="card__image">
@@ -131,7 +129,7 @@
             </div>
             <div class="features">
                 <!-- Feature 1 -->
-                <div class="feature">
+                <div class="feature js-scroll-in--right">
                     <div class="feature__image">
                         <img src="images/green-house.jpg" alt="サステナブルな取り組み">
                     </div>
@@ -147,7 +145,7 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="feature feature--reverse">
+                <div class="feature feature--reverse js-scroll-in--left">
                     <div class="feature__image">
                         <img src="images/check-plants.jpg" alt="プロのメンテナンスサービス">
                     </div>
@@ -306,7 +304,7 @@
             <h2 class="section__title">プラン・料金</h2>
             <p class="section__description">お客様のニーズに合わせた多様なプランをご用意しております。まずはお気軽にご相談ください。</p>
         </div>
-        <div class="pricing">
+        <div class="pricing js-scroll-in--left">
             <!-- Basic Plan -->
             <div class="pricing-card">
                 <div class="pricing-card__header">
