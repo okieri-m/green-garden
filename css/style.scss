@@ -11,10 +11,7 @@
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  background: url("../images/plants-in-office.jpg") no-repeat center;
-  background-size: cover;
-  background-position: center;
+  position: relative;
   &__container{
     margin: auto;
     @include mq(md){
@@ -50,6 +47,56 @@
     color: $color-gray-700;
     margin-bottom: 2rem;
   }
+}
+
+.hero__slide-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center center;
+  overflow-y: hidden;
+  animation: image-switch-animation 15s infinite;
+  z-index: -1;
+}
+
+.src1{
+  background-image: url(../images/plant-and-laptops.jpg);
+}
+.src2{
+  background-image: url(../images/plants-hang-roof.jpg);
+}
+.src3{
+  background-image: url(../images/plants-in-office.jpg);
+}
+
+// スライドのアニメーション
+@keyframes image-switch-animation {
+  0%, 100%{
+    opacity: 0;
+  }
+  5%{
+    opacity: 1;
+  }
+  25%{
+    opacity: 1;
+  }
+  33%{
+    opacity: 0;
+  }
+}
+
+.hero__slide-img:nth-of-type(1){
+  animation-delay: 0s;
+}
+.hero__slide-img:nth-of-type(2){
+  animation-delay: 5s;
+}
+.hero__slide-img:nth-of-type(3){
+  animation-delay: 10s;
 }
 
 // サービスセクション

@@ -16,11 +16,11 @@
     }
   
     &__logo {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.875rem;
+      max-width: 180px;
       color: $color-primary;
       text-decoration: none;
-  
+      display: flex;
+      align-items: center;
       @include mq(md) {
         font-size: 2.25rem;
       }

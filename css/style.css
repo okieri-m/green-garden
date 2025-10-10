@@ -105,10 +105,15 @@ button {
   padding: 1rem;
 }
 .header__logo {
-  font-family: "Pacifico", cursive;
-  font-size: 1.875rem;
+  max-width: 180px;
   color: #2e7d32;
   text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 @media screen and (min-width: 750px) {
   .header__logo {
@@ -247,7 +252,7 @@ button {
 }
 @media screen and (min-width: 750px) {
   .footer__grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 2fr 1fr 1fr;
   }
 }
 .footer__logo {
@@ -803,12 +808,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: url("../images/plants-in-office.jpg") no-repeat center;
-  background-size: cover;
-  background-position: center;
+  position: relative;
 }
 .hero__container {
   margin: auto;
@@ -847,6 +847,77 @@ button {
   font-size: 1.125rem;
   color: #374151;
   margin-bottom: 2rem;
+}
+
+.hero__slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center center;
+  overflow-y: hidden;
+  -webkit-animation: image-switch-animation 15s infinite;
+          animation: image-switch-animation 15s infinite;
+  z-index: -1;
+}
+
+.src1 {
+  background-image: url(../images/plant-and-laptops.jpg);
+}
+
+.src2 {
+  background-image: url(../images/plants-hang-roof.jpg);
+}
+
+.src3 {
+  background-image: url(../images/plants-in-office.jpg);
+}
+
+@-webkit-keyframes image-switch-animation {
+  0%, 100% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+}
+
+@keyframes image-switch-animation {
+  0%, 100% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+}
+.hero__slide-img:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.hero__slide-img:nth-of-type(2) {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+
+.hero__slide-img:nth-of-type(3) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
 }
 
 @media screen and (min-width: 750px) {
