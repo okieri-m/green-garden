@@ -142,6 +142,12 @@ button {
 }
 .header__contact {
   padding: 0.5rem 0.75rem;
+  display: none;
+}
+@media screen and (min-width: 480px) {
+  .header__contact {
+    display: block;
+  }
 }
 
 .ri-lg {
@@ -256,7 +262,6 @@ button {
   }
 }
 .footer__logo {
-  font-family: "Pacifico", cursive;
   font-size: 2.25rem;
   color: #fff;
   text-decoration: none;
